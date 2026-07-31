@@ -1,0 +1,77 @@
+body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 20px;
+
+     background-image: url('../images/bgPkmon.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+}
+
+.login-box {
+background: white;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+text-align: center;
+}
+
+input {
+display: block;
+width: 100%;
+margin: 10px 0;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #e3350d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #b32a0a;
+}
+
+.error {
+    color: red; font-size: 0.9em; margin-bottom: 10px;
+}
+
+.container-split {
+    display: flex;             /* Ativa o modo lado a lado */
+    width: 100vw;              /* Ocupa 100% da largura da tela */
+    height: 100vh;             /* Ocupa 100% da altura da tela */
+    margin: -20px;             /* Remove aquele padding de 20px que tínhamos no body */
+}
+
+/* Coluna da Imagem */
+.img-column {
+    flex: 1;                   /* Ocupa metade do espaço */
+    background-image: url('../images/satoshi.png'); /* O caminho da sua imagem */
+    background-size: cover;    /* Cobre todo o espaço da coluna */
+    background-position: center;
+}
+
+/* Coluna do Formulário */
+.form-column {
+    flex: 1;                   /* Ocupa a outra metade do espaço */
+    display: flex;             /* Usa flexbox internamente... */
+    justify-content: center;   /* ...para centralizar a caixa na horizontal... */
+    align-items: center;       /* ...e na vertical! */
+    background-color: #f4f4f9; /* Fundo cinza clarinho da área do form */
+}

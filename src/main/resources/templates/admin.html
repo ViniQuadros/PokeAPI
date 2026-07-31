@@ -3,14 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PokeAPI - Painel Admin</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #2a75bb; color: white; }
-        .btn-delete { background-color: #e3350d; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
-        .btn-delete:hover { background-color: #b32a0a; }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
 </head>
 <body>
 
@@ -45,7 +38,7 @@
 </table>
 
 <br>
-<a th:href="@{/login}">Back to login</a>
+<a th:href="@{/login}">Back to log in</a>
 
 </body>
 </html>
