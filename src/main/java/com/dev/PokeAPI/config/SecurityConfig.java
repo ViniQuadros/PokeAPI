@@ -18,7 +18,7 @@ public class SecurityConfig {
                 // 1. Regras de Autorização
                 .authorizeHttpRequests(auth -> auth
                         // Permite acesso público à página de login e ficheiros estáticos (CSS, JS, imagens)
-                        .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
                         // Todas as outras rotas (incluindo a /home do seu parceiro) exigem autenticação
                         .anyRequest().authenticated()
                 )
