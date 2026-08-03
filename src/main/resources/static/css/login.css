@@ -1,0 +1,94 @@
+body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 20px;
+
+     background-image: url('../images/bgPkmon.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+
+    overflow: hidden;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+}
+
+.login-box {
+text-align: center;
+}
+
+.login-box h2 {
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+}
+
+.register-p {
+margin-top: 15px;
+font-size: 0.9em;
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+}
+
+.register-p a {
+color: #e3350d;
+text-decoration: none;
+font-weight: bold;
+}
+
+input {
+display: block;
+width: 100%;
+margin: 10px 0;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #e3350d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #b32a0a;
+}
+
+.error {
+    color: red; font-size: 0.9em; margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    gap: 80px;
+}
+
+/* Coluna da Imagem */
+.img-column {
+    flex: 1;
+    background-image: url('../images/satoshi.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Coluna do Formulário */
+.form-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
