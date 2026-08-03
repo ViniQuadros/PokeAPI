@@ -9,6 +9,7 @@ body {
      background-repeat: no-repeat;
      background-attachment: fixed;
 
+    overflow: hidden;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -16,11 +17,27 @@ body {
 }
 
 .login-box {
-background: white;
-padding: 30px;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 text-align: center;
+}
+
+.login-box h2 {
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+}
+
+.register-p {
+margin-top: 15px;
+font-size: 0.9em;
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+}
+
+.register-p a {
+color: #e3350d;
+text-decoration: none;
+font-weight: bold;
 }
 
 input {
@@ -52,26 +69,26 @@ button:hover {
     color: red; font-size: 0.9em; margin-bottom: 10px;
 }
 
-.container-split {
-    display: flex;             /* Ativa o modo lado a lado */
-    width: 100vw;              /* Ocupa 100% da largura da tela */
-    height: 100vh;             /* Ocupa 100% da altura da tela */
-    margin: -20px;             /* Remove aquele padding de 20px que tínhamos no body */
+.container {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    gap: 80px;
 }
 
 /* Coluna da Imagem */
 .img-column {
-    flex: 1;                   /* Ocupa metade do espaço */
-    background-image: url('../images/satoshi.png'); /* O caminho da sua imagem */
-    background-size: cover;    /* Cobre todo o espaço da coluna */
+    flex: 1;
+    background-image: url('../images/satoshi.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center;
 }
 
 /* Coluna do Formulário */
 .form-column {
-    flex: 1;                   /* Ocupa a outra metade do espaço */
-    display: flex;             /* Usa flexbox internamente... */
-    justify-content: center;   /* ...para centralizar a caixa na horizontal... */
-    align-items: center;       /* ...e na vertical! */
-    background-color: #f4f4f9; /* Fundo cinza clarinho da área do form */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
