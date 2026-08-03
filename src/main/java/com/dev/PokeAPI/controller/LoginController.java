@@ -11,9 +11,4 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("/index")
-    public String indexPage() {
-        return "index";
-    }
-
 }

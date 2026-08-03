@@ -25,7 +25,7 @@ public class SecurityConfig {
                 // 2. Configuração do Formulário de Login
                 .formLogin(form -> form
                         .loginPage("/login")               // Rota que exibe a sua página HTML de login
-                        .defaultSuccessUrl("/index", true)  // Redireciona para a página do seu parceiro após o login
+                        .defaultSuccessUrl("/index.html", true)  // Redireciona para a página do seu parceiro após o login
                         .permitAll()
                 )
                 // 3. Configuração de Encerramento de Sessão (Logout)
