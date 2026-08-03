@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/search.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html" class="active">Search</a></li>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#games">Games</a></li>
+    </ul>
+</nav>
+
+<h1 class="title">Search a Pokémon:</h1>
+<div class="search-box">
+    <label for="pokeField"></label><input type="text" placeholder="Enter a Pokemon" id="pokeField">
+    <button onclick="SearchPokemon()">Find</button>
+</div>
+
+<template id="pokemonTemplate">
+    <div class="pokeResult">
+        <h2 class="name">Pokemon</h2>
+        <img alt="Pokemon Sprite" class="sprite">
+        <p class="height">Height</p>
+        <p class="weight">Weight</p>
+        <p class="type">Type</p>
+    </div>
+</template>
+
+<div id="pokeArea">
+</div>
+
+</body>
+</html>
