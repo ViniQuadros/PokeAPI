@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/types.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="types.html">Types</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#games">Games</a></li>
+    </ul>
+</nav>
+
+<template id="pokemonTemplate">
+    <div class="pokeResult">
+        <h2 class="name">Pokemon</h2>
+        <img alt="Pokemon Sprite" class="sprite">
+        <p class="type">Type</p>
+    </div>
+</template>
+
+<div class="typeButtons">
+    <button class="typeButton" onclick="findPokemonOfType(this)">Normal</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Fire</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Water</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Bug</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Poison</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Fairy</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Psychic</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Electric</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Grass</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Ghost</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Rock</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Ice</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Ground</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Fighting</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Dragon</button>
+    <button class="typeButton" onclick="findPokemonOfType(this)">Dark</button>
+</div>
+
+<div id="pokeArea">
+</div>
+
+</body>
+</html>

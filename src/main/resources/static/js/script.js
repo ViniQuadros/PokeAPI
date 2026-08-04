@@ -1,6 +1,7 @@
-const template = document.getElementById("pokemonTemplate");
-const area = document.getElementById("pokeArea");
+const template = document.getElementById("pokemonTemplate"); //The template for each div
+const area = document.getElementById("pokeArea"); //Area where the templates are rendered
 
+//Get Pokémon by its name or id
 async function fetchPokemon(name) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`);
     if (!response.ok) {
@@ -10,6 +11,17 @@ async function fetchPokemon(name) {
     return response.json();
 }
 
+//Get Pokémon by its type
+async function fetchType(type) {
+    const response = await fetch(`https://pokeapi.co/api/v2/type/${type}/`);
+    if (!response.ok) {
+        alert("Could not find type: " + type);
+        throw new Error(response.statusText);
+    }
+    return response.json();
+}
+
+//Change the color of the template background based on the Pokemon type
 function selectCardColor(typeName, cardElement){
     switch (typeName) {
         case "fire":
@@ -63,6 +75,7 @@ function selectCardColor(typeName, cardElement){
     }
 }
 
+//Get the template and updates it for the home and search pages
 function renderPokemonCard(res) {
     const clone = template.content.cloneNode(true);
 
@@ -79,8 +92,30 @@ function renderPokemonCard(res) {
     area.appendChild(clone);
 }
 
+//Get the template and updates it for the types page.
+async function renderTypeCard(res) {
+    // Fetch all sprites in parallel simultaneously
+    const pokemonPromises = res.pokemon.map(entry => fetchPokemon(entry.pokemon.name));
+    const allPokemonData = await Promise.all(pokemonPromises);
+
+    // Loop and render them instantly
+    allPokemonData.forEach(pokemonData => {
+        const typeClone = template.content.cloneNode(true);
+
+        typeClone.querySelector(".name").textContent = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
+        typeClone.querySelector(".sprite").src = pokemonData.sprites.front_default;
+        typeClone.querySelector(".type").textContent = `Type: ${res.name}`;
+
+        const cardElement = typeClone.querySelector(".pokeResult");
+        selectCardColor(res.name, cardElement);
+
+        area.appendChild(typeClone);
+    });
+}
+
 async function SearchPokemon() {
     try {
+        //Remove possible spaces from the search
         const name = document.getElementById("pokeField").value.trim();
         const res = await fetchPokemon(name);
         area.innerHTML = '';
@@ -95,10 +130,12 @@ function getRandomInt(min, max) {
 }
 
 let numberList = [];
+//Check if the number is inside the 'numberList array'
 function checkArray(num){
     return !!numberList.includes(num);
 }
 
+//Renders the Pokémon at the home page
 async function getHomePokemons() {
     let counter;
     try {
@@ -108,6 +145,7 @@ async function getHomePokemons() {
         while (counter < 10) {
             let randID = getRandomInt(1, 200);
 
+            //If the number is in the array, must continue to prevent repeating Pokémon
             if (checkArray()) {
                 continue;
             }
@@ -117,6 +155,16 @@ async function getHomePokemons() {
             counter++;
         }
 
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function findPokemonOfType(btn) {
+    try {
+        const res = await fetchType(btn.textContent.toLowerCase());
+        area.innerHTML = '';
+        await renderTypeCard(res);
     } catch (error) {
         console.error(error);
     }
