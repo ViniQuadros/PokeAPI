@@ -20,6 +20,12 @@ public class AdminController {
 
     private final UserLoginRepository repo;
 
+    // to redirect to admin/users when put just admin on url
+    @GetMapping({"","/"})
+    public String redirectToUsers() {
+        return "redirect:/admin/users";
+    }
+
     @GetMapping("/users")
     public String findAll(Model model) {
         List<UserLogin> all = repo.findAll();

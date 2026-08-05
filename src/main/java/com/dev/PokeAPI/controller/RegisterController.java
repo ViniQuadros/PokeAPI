@@ -28,20 +28,20 @@ public class RegisterController {
                                Model model){
 
         if(repo.findByUsername(username).isPresent()) {
-            model.addAttribute("erro", "O nome de usuário '" + username + "' já existe!");
-            //a classe e objeto Model serve para enviar mensagem entre java e html
+            model.addAttribute("erro", "User '" + username + "' already exists!");
+            //model class works sending messages between java and html
 
-            return "register"; //retorna para voltar à página
+            return "register";
         }
 
-        UserLogin usuarioNovo = new UserLogin();
-        usuarioNovo.setUsername(username);
+        UserLogin newUser = new UserLogin();
+        newUser.setUsername(username);
 
         String senhaCriptografada = passwordEncoder.encode(password);
 
-        usuarioNovo.setPassword(senhaCriptografada);
+        newUser.setPassword(senhaCriptografada);
 
-        repo.save(usuarioNovo);
+        repo.save(newUser);
 
         return "redirect:/login?registered=true";
     }

@@ -1,5 +1,6 @@
 package com.dev.PokeAPI.domain;
 
+import com.dev.PokeAPI.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,5 +27,8 @@ public class UserLogin {
 
     @Column(nullable = false)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role = UserRole.USER;
 
 }

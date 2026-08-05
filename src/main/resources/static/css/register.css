@@ -5,19 +5,31 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f9;
 
+    background-image: url('../images/bgPkCenter.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .login-box {
+text-align: center;
+}
 
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
+.login-box h2 {
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+}
 
-     }
+.login-p {
+margin-top: 15px;
+font-size: 0.9em;
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+}
 
 input {
     display: block;
@@ -43,3 +55,27 @@ button {
 button:hover {
     background: #1f5a92;
      }
+
+.container {
+    display: flex;
+    width: 80%;
+    min-height: 80vh;
+    gap: 80px;
+}
+
+/* Coluna da Imagem */
+.img-column {
+    flex: 1;
+    background-image: url('../images/pikachu.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Coluna do Formulário */
+.form-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -4,7 +4,7 @@ body {
      padding: 20px;
 
      background-image: url('../images/bgPkmon.jpg');
-     background-size: cover;
+     background-size: 100% 100%;
      background-position: center;
      background-repeat: no-repeat;
      background-attachment: fixed;
@@ -71,8 +71,8 @@ button:hover {
 
 .container {
     display: flex;
-    max-width: 100%;
-    height: auto;
+        width: 80%;
+    min-height: 80vh;
     gap: 80px;
 }
 
