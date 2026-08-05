@@ -39,12 +39,17 @@ body{
 }
 
 .title{
-    text-align: center;
-    color: blueviolet;
+    color: #FFCC03;
+    -webkit-text-stroke: 2px #3B4CCA;
+    text-shadow: 3px 3px 0px #1D2C5E;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 #pokeArea{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
+    margin: 20px;
 }
