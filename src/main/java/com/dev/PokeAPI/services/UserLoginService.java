@@ -20,12 +20,12 @@ public class UserLoginService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserLogin user = repo.findByUsername(username).
-                orElseThrow(() -> new UsernameNotFoundException("Utilizador não encontrado: " + username));
+                orElseThrow(() -> new UsernameNotFoundException("User not found " + username));
 
         return User.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
-                .roles("USER")
+                .roles(user.getRole().name())
                 .build();
     }
 }

@@ -15,11 +15,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // 1. Regras de Autorização
                 .authorizeHttpRequests(auth -> auth
-                        // Permite acesso público à página de login e ficheiros estáticos (CSS, JS, imagens)
-                        .requestMatchers("/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
-                        // Todas as outras rotas (incluindo a /home do seu parceiro) exigem autenticação
+                        .requestMatchers("/login", "/register", "/css/**", "/js/**", "/images/**",  "/denied-page").permitAll()
+
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+
                         .anyRequest().authenticated()
                 )
                 // 2. Configuração do Formulário de Login
@@ -27,6 +27,9 @@ public class SecurityConfig {
                         .loginPage("/login")               // Rota que exibe a sua página HTML de login
                         .defaultSuccessUrl("/index.html", true)  // Redireciona para a página do seu parceiro após o login
                         .permitAll()
+                )
+                .exceptionHandling( ex ->
+                    ex.accessDeniedPage("/denied-page")
                 )
                 // 3. Configuração de Encerramento de Sessão (Logout)
                 .logout(logout -> logout
@@ -38,7 +41,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // Codificador de palavras-passe utilizando o algoritmo BCrypt
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
