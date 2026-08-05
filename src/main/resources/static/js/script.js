@@ -92,27 +92,6 @@ function renderPokemonCard(res) {
     area.appendChild(clone);
 }
 
-//Get the template and updates it for the types page.
-async function renderTypeCard(res) {
-    // Fetch all sprites in parallel simultaneously
-    const pokemonPromises = res.pokemon.map(entry => fetchPokemon(entry.pokemon.name));
-    const allPokemonData = await Promise.all(pokemonPromises);
-
-    // Loop and render them instantly
-    allPokemonData.forEach(pokemonData => {
-        const typeClone = template.content.cloneNode(true);
-
-        typeClone.querySelector(".name").textContent = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
-        typeClone.querySelector(".sprite").src = pokemonData.sprites.front_default;
-        typeClone.querySelector(".type").textContent = `Type: ${res.name}`;
-
-        const cardElement = typeClone.querySelector(".pokeResult");
-        selectCardColor(res.name, cardElement);
-
-        area.appendChild(typeClone);
-    });
-}
-
 async function SearchPokemon() {
     try {
         //Remove possible spaces from the search
@@ -161,13 +140,7 @@ async function getHomePokemons() {
 }
 
 async function findPokemonOfType(btn) {
-    try {
-        const res = await fetchType(btn.textContent.toLowerCase());
-        area.innerHTML = '';
-        await renderTypeCard(res);
-    } catch (error) {
-        console.error(error);
-    }
+    await loadPokemonType(btn.textContent.toLowerCase());
 }
 
 document.addEventListener("DOMContentLoaded", () => {

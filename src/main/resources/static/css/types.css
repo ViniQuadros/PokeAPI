@@ -1,5 +1,75 @@
-.typeButtons{
-    display: inline-block;
-    text-align: center;
+.typeButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 15px;
 }
+
+.pageBtn{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 80px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.pageBtn:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.pageBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.typeButton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+
+    width: 100px;
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.typeButton:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.typeButton:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Dynamic Type Colors */
+.typeButton[data-type="normal"]   { background-color: #A8A878; }
+.typeButton[data-type="fire"]     { background-color: #f03030; }
+.typeButton[data-type="water"]    { background-color: #6890F0; }
+.typeButton[data-type="bug"]      { background-color: #A8B820; }
+.typeButton[data-type="poison"]   { background-color: #A040A0; }
+.typeButton[data-type="fairy"]    { background-color: #EE99AC; }
+.typeButton[data-type="psychic"]  { background-color: #454545; }
+.typeButton[data-type="electric"] { background-color: #F8D030; color: #222; text-shadow: none; }
+.typeButton[data-type="grass"]    { background-color: #305020; }
+.typeButton[data-type="ghost"]    { background-color: #70559B; }
+.typeButton[data-type="rock"]     { background-color: #B8A038; }
+.typeButton[data-type="ice"]      { background-color: #98D8D8; color: #222; text-shadow: none; }
+.typeButton[data-type="ground"]   { background-color: #E0C068; color: #222; text-shadow: none; }
+.typeButton[data-type="fighting"] { background-color: #ec7a32; }
+.typeButton[data-type="dragon"]   { background-color: #38f8d5; }
+.typeButton[data-type="dark"]     { background-color: #705848; }

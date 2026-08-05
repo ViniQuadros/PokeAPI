@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/types.css">
     <script src="js/script.js" defer></script>
+    <script src="js/pagination.js" defer></script>
+    <link rel="icon" type="image/png" href="images/icon_pokeball.png">
 </head>
 <body>
 <nav class="navbar">
     <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="search.html">Search</a></li>
-        <li><a href="types.html">Types</a></li>
+        <li><a href="types.html" class="active">Types</a></li>
         <li><a href="#locations">Locations</a></li>
         <li><a href="#games">Games</a></li>
     </ul>
@@ -28,22 +30,28 @@
 </template>
 
 <div class="typeButtons">
-    <button class="typeButton" onclick="findPokemonOfType(this)">Normal</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Fire</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Water</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Bug</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Poison</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Fairy</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Psychic</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Electric</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Grass</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Ghost</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Rock</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Ice</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Ground</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Fighting</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Dragon</button>
-    <button class="typeButton" onclick="findPokemonOfType(this)">Dark</button>
+    <button class="typeButton" data-type="normal" onclick="findPokemonOfType(this)">Normal</button>
+    <button class="typeButton" data-type="fire" onclick="findPokemonOfType(this)">Fire</button>
+    <button class="typeButton" data-type="water" onclick="findPokemonOfType(this)">Water</button>
+    <button class="typeButton" data-type="bug" onclick="findPokemonOfType(this)">Bug</button>
+    <button class="typeButton" data-type="poison" onclick="findPokemonOfType(this)">Poison</button>
+    <button class="typeButton" data-type="fairy" onclick="findPokemonOfType(this)">Fairy</button>
+    <button class="typeButton" data-type="psychic" onclick="findPokemonOfType(this)">Psychic</button>
+    <button class="typeButton" data-type="electric" onclick="findPokemonOfType(this)">Electric</button>
+    <button class="typeButton" data-type="grass" onclick="findPokemonOfType(this)">Grass</button>
+    <button class="typeButton" data-type="ghost" onclick="findPokemonOfType(this)">Ghost</button>
+    <button class="typeButton" data-type="rock" onclick="findPokemonOfType(this)">Rock</button>
+    <button class="typeButton" data-type="ice" onclick="findPokemonOfType(this)">Ice</button>
+    <button class="typeButton" data-type="ground" onclick="findPokemonOfType(this)">Ground</button>
+    <button class="typeButton" data-type="fighting" onclick="findPokemonOfType(this)">Fighting</button>
+    <button class="typeButton" data-type="dragon" onclick="findPokemonOfType(this)">Dragon</button>
+    <button class="typeButton" data-type="dark" onclick="findPokemonOfType(this)">Dark</button>
+</div>
+
+<div class="pagination">
+    <button class="pageBtn" id="prevBtn">Previous</button>
+    <span id="pageInfo">Page 1</span>
+    <button class="pageBtn" id="nextBtn">Next</button>
 </div>
 
 <div id="pokeArea">
