@@ -1,3 +1,52 @@
-#pokeArea{
+h2, ul{
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+h3{
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #000c4a;
+}
+
+#pokeArea {
     display: block;
+    text-align: center;
+}
+
+.cities {
+    display: inline-block;
+    text-align: left;
+    column-count: 5;
+    column-gap: 30px;
+    font-size: 0.95rem;
+}
+
+.regionButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.regionButton {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    outline: none;
+    cursor: pointer;
+
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #081d37;
+    padding: 8px 16px;
+    border-radius: 20px;
+
+    transition: all 0.2s ease;
+}
+
+.regionButton:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border-color: #cbd5e1;
 }

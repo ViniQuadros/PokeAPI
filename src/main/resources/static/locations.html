@@ -13,11 +13,11 @@
 <body>
 <nav class="navbar">
     <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="search.html">Search</a></li>
         <li><a href="types.html">Types</a></li>
         <li><a href="items.html">Items</a></li>
-        <li><a href="locations.html">Locations</a></li>
+        <li><a href="locations.html" class="active">Locations</a></li>
         <li><a href="#games">Games</a></li>
     </ul>
 </nav>
@@ -43,6 +43,11 @@
     <button class="regionButton" onclick="findRegion(this)">Paldea</button>
     <button class="regionButton" onclick="findRegion(this)">Orre</button>
 </div>
+
+<div>
+    <h3 id="pokemonByRegion"></h3>
+</div>
+
 <div id="pokeArea">
 </div>
 
