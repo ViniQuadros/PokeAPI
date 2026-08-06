@@ -53,3 +53,20 @@ body{
     gap: 16px;
     margin: 20px;
 }
+
+
+
+#itemArea{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin: 20px;
+}
+
+.ItemResult {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #f4e0d8;
+}

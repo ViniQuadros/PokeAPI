@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 // Força o Spring a procurar repositórios nesta pasta específica
 @EnableJpaRepositories(basePackages = "com.dev.PokeAPI.repositories")
 
-// Força o Spring a procurar entidades (tabelas) nesta pasta específica
+//force spring to scan for entities in this package
 @EntityScan(basePackages = "com.dev.PokeAPI.domain")
 
 public class PokeApiApplication {
