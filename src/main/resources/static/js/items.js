@@ -15,27 +15,62 @@ function renderItemCard(res) {
     const clone = template.content.cloneNode(true);
 
     const itemName = res.names.find(entry => entry.language.name === "en").name;
-    const itemDesc = res.flavor_text_entries.find(entry => entry.language.name === "en").text;
+    const itemDesc = res.flavor_text_entries.find(entry => entry.language.name === "en").text.replace(/\n/g, ' ');;
     clone.querySelector(".name").textContent = itemName;
-    clone.querySelector(".sprite").src = res.sprites.default;
-    clone.querySelector(".description").textContent = `${itemDesc}`;
+
+    const sprite = res.sprites.default;
+    if (sprite === null) {
+        clone.querySelector(".sprite").style.display = 'none';
+    } else {
+        clone.querySelector(".sprite").src = sprite;
+    }
+
+    const desc = `${itemDesc}`
+    clone.querySelector(".description").textContent = !desc ? 'no description' : desc;
 
     const cardElement = clone.querySelector(".itemResult");
-    cardElement.backgroundColor = '#E3F2FD';
 
     area.appendChild(clone);
 }
 
-async function SearchItem() {
+
+async function searchItems() {
+
+    const name = document.getElementById("itemField").value.toLowerCase().trim();
+
+    if(name === '') {
+        getItems();
+        return;
+    }
+
+    const response = await fetch('https://pokeapi.co/api/v2/item?limit=10000');
+
+    if (!response.ok) {
+        throw new Error(`Error loading item(s): ${response.statusText}`);
+    }
+
     try {
-        //Remove possible spaces from the search
-        const name = document.getElementById("itemField").value.trim();
-        const res = await fetchItem(name);
+
+        const data = await response.json();
+
+        const matchedItems = data.results.filter(item =>
+        item.name.includes(name)
+        );
+
         area.innerHTML = '';
-        renderItemCard(res);
+
+        const itemsToFetch = matchedItems.slice(0, 10);
+
+        for (const item of itemsToFetch) {
+            const itemFetched = await fetchItem(item.name);
+            renderItemCard(itemFetched);
+        }
+
+
     } catch (error) {
         console.error(error);
     }
+
 }
 
 function getRandomInt(min, max) {
@@ -59,7 +94,7 @@ async function getItems() {
             let randID = getRandomInt(1, 200);
 
             //If the number is in the array, must continue to prevent repeating Pokémon
-            if (checkArray()) {
+            if (checkArray(randID)) {
                 continue;
             }
 
