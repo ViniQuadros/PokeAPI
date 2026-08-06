@@ -1,0 +1,56 @@
+#itemArea{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin: 20px;
+}
+
+.itemResult {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #f4e0d8;
+}
+
+.sprite {
+    max-width: 100%;
+     height: auto;
+}
+
+#itemField {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    width: 260px;
+    transition: all 0.2s ease;
+}
+
+#itemField:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #1d502b;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #1d80d3;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
