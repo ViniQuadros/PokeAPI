@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/locations.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/locations.js" defer></script>
+    <link rel="icon" type="image/png" href="images/icon_pokeball.png">
+</head>
+<body>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="types.html">Types</a></li>
+        <li><a href="items.html">Items</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="#games">Games</a></li>
+    </ul>
+</nav>
+
+<template id="locationsTemplate">
+    <div class="locResult">
+        <h2 class="location">Location</h2>
+        <ul class="cities"></ul>
+    </div>
+</template>
+
+<h1 class="title">LOCATIONS</h1>
+<div class="regionButtons">
+    <button class="regionButton" onclick="findRegion(this)">Kanto</button>
+    <button class="regionButton" onclick="findRegion(this)">Johto</button>
+    <button class="regionButton" onclick="findRegion(this)">Hoenn</button>
+    <button class="regionButton" onclick="findRegion(this)">Sinnoh</button>
+    <button class="regionButton" onclick="findRegion(this)">Unova</button>
+    <button class="regionButton" onclick="findRegion(this)">Kalos</button>
+    <button class="regionButton" onclick="findRegion(this)">Alola</button>
+    <button class="regionButton" onclick="findRegion(this)">Galar</button>
+    <button class="regionButton" onclick="findRegion(this)">Hisui</button>
+    <button class="regionButton" onclick="findRegion(this)">Paldea</button>
+    <button class="regionButton" onclick="findRegion(this)">Orre</button>
+</div>
+<div id="pokeArea">
+</div>
+
+</body>
+</html>
