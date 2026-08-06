@@ -7,9 +7,8 @@
     <link rel="icon" type="image/png" href="images/icon_pokeball.png">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/items.css">
     <script src="js/items.js" defer></script>
-
-
 
 </head>
 <body>
@@ -25,11 +24,13 @@
     </nav>
 
     <h1 class="title">Items</h1>
-    <div id="itemArea">
-    </div>
+
     <div class="search-box">
         <label for="itemField"></label><input type="text" placeholder="Enter a Item" id="itemField">
         <button onclick="SearchItem()">Find</button>
+    </div>
+
+    <div id="itemArea">
     </div>
 
     <template id="itemTemplate">

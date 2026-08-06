@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const path = window.location.pathname;
 
     if (path.endsWith("items.html") || path === "/") {
-
         getItems();
     }
 });
