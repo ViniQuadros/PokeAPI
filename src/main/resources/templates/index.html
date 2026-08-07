@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeAPI</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" defer></script>
-    <link rel="icon" type="image/png" href="images/icon_pokeball.png">
+    <link rel="icon" type="image/png" th:href="@{/images/icon_pokeball.png}">
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/script.js}" defer></script>
+
 </head>
 <body>
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="types.html">Types</a></li>
-            <li><a href="items.html">Items</a></li>
-            <li><a href="locations.html">Locations</a></li>
+            <li><a th:href="@{/index}" class="active">Home</a></li>
+            <li><a th:href="@{/search}">Search</a></li>
+            <li><a th:href="@{/types}">Types</a></li>
+            <li><a th:href="@{/items}">Items</a></li>
+            <li><a th:href="@{/locations}">Locations</a></li>
             <li><a href="#games">Games</a></li>
         </ul>
     </nav>

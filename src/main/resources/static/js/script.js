@@ -146,7 +146,9 @@ async function findPokemonOfType(btn) {
 document.addEventListener("DOMContentLoaded", () => {
     const path = window.location.pathname;
 
-    if (path.endsWith("index.html") || path === "/") {
+    if (path.endsWith("index")
+    || path.endsWith("home")
+    || path === "/") {
         getHomePokemons();
     }
 });
