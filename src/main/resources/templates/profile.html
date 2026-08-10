@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" th:href="@{/images/icon_pokeball.png}">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <script th:src="@{/js/profile.js}" defer></script>
 
 </head>
 <body>
@@ -22,17 +23,38 @@
 </nav>
 <div class="container">
     <div class="column-user">
-        <!-- <img class="profileImg" src="../static/images/Satoshi.png" alt="profile photo"> -->
-        <p th:text="${user.username}">Nome do usuário</p>
+        <img class="profileImg"
+             th:src="${user.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/pikachu.png'}"
+             alt="Profile picture" src="">
+
+        <p th:text="${user.username}">Username</p>
+
+
+        <form th:action="@{/profile/update-avatar}" method="post" style="margin-top: 15px;">
+            <label>
+                <input type="url" name="picProfileUrl" placeholder="Copy the URL for your picture here" required style="width: 100%; padding: 5px;">
+            </label>
+            <button type="submit" style="margin-top: 5px; width: 100%; margin-bottom: 10px;">Update profile</button>
+        </form>
+
 
         <form th:action="@{/logout}" method="post">
             <button type="submit" class="logout-btn">Logout</button>
         </form>
 
     </div>
+
     <div class="column-details">
-        <div class="pokeInfo"></div>
+        <div id="pokeArea" th:data-fav-pokemon="${user.favPokemon}"></div>
+
+        <form th:action="@{/profile/update-favPokemon}" method="post" style="margin-top: 15px;">
+            <label>
+                <input type="text" name="favPokemon" placeholder="Enter your favorite pokemon here" required style="width: 100%; padding: 5px;">
+            </label>
+            <button type="submit" style="margin-top: 5px; width: 100%;">Update favorite pokemon</button>
+        </form>
     </div>
+
 </div>
 
 <template id="pokemonTemplate">
