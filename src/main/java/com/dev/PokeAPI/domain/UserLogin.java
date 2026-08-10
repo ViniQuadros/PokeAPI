@@ -28,6 +28,12 @@ public class UserLogin {
     @Column(nullable = false)
     private String password;
 
+    @Column
+    private String picProfileUrl;
+
+    @Column
+    private String favPokemon;
+
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.USER;
 

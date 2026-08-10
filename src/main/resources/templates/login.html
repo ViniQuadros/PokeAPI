@@ -19,14 +19,14 @@
             <h2>Login PokeAPI</h2>
 
             <div th:if="${param.error}" class="error">
-                Name or password incorrect.
+                Name or password incorrect
             </div>
 
-            <div th:if="${param.logout}" style="color: green; margin-bottom: 10px;">
-                Session finished.
+            <div th:if="${param.logout}" class="success">
+                Session finished
             </div>
 
-            <div th:if="${param.registered}" style="color: green; margin-bottom: 10px;">
+            <div th:if="${param.registered}" class="success">
                 Account created successfully!
             </div>
 

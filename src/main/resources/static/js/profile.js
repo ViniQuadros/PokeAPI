@@ -1,5 +1,5 @@
 const template = document.getElementById("pokemonTemplate"); //The template for each div
-const area = document.getElementById("pokeArea"); //Area where the templates are rendered
+const area = document.getElementById("pokeArea");
 
 //Get Pokémon by its name or id
 async function fetchPokemon(name) {
@@ -89,66 +89,29 @@ function renderPokemonCard(res) {
     const cardElement = clone.querySelector(".pokeResult");
     selectCardColor(res.types[0].type.name, cardElement);
 
-    area.appendChild(clone);
+    area.replaceChildren(clone);
 }
 
-async function SearchPokemon() {
-    try {
-        //Remove possible spaces from the search
-        const name = document.getElementById("pokeField").value.trim();
-        const res = await fetchPokemon(name);
-        area.innerHTML = '';
-        renderPokemonCard(res);
-    } catch (error) {
-        console.error(error);
-    }
-}
+async function loadingFavPokemon() {
+    if (area) {
+        // Puxa o valor que nós escondemos no HTML com o Thymeleaf
+        const favPokemon = area.dataset.favPokemon;
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+        if (favPokemon && favPokemon.trim() !== "") {
+            try {
+                const pokemonData = await fetchPokemon(favPokemon.toLowerCase());
 
-let numberList = [];
-//Check if the number is inside the 'numberList array'
-function checkArray(num){
-    return !!numberList.includes(num);
-}
-
-//Renders the Pokémon at the home page
-async function getHomePokemons() {
-    let counter;
-    try {
-        area.innerHTML = '';
-
-        counter = 0;
-        while (counter < 10) {
-            let randID = getRandomInt(1, 200);
-
-            //If the number is in the array, must continue to prevent repeating Pokémon
-            if (checkArray()) {
-                continue;
+                renderPokemonCard(pokemonData);
+            } catch (error) {
+                console.error("Error loading your favorite Pokémon ", error);
+                area.innerHTML = "<p>Error loading your favorite Pokémon.</p>";
             }
-
-            const res = await fetchPokemon(randID);
-            renderPokemonCard(res);
-            counter++;
+        } else {
+            area.innerHTML = "<p style='text-align: center; color: #555;'>You haven't selected a favorite Pokémon yet!</p>";
         }
-
-    } catch (error) {
-        console.error(error);
     }
 }
 
-async function findPokemonOfType(btn) {
-    await loadPokemonType(btn.textContent.toLowerCase());
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const path = window.location.pathname;
-
-    if (path.endsWith("index")
-    || path.endsWith("home")
-    || path === "/") {
-        getHomePokemons();
-    }
+document.addEventListener("DOMContentLoaded", async () => {
+    loadingFavPokemon();
 });

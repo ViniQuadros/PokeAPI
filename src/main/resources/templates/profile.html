@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PokeAPI</title>
+    <link rel="icon" type="image/png" th:href="@{/images/icon_pokeball.png}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <script th:src="@{/js/profile.js}" defer></script>
+
+</head>
+<body>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/search}">Search</a></li>
+        <li><a th:href="@{/types}">Types</a></li>
+        <li><a th:href="@{/items}">Items</a></li>
+        <li><a th:href="@{/locations}">Locations</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a th:href="@{/profile}" class="active">Profile</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="column-user">
+        <img class="profileImg"
+             th:src="${user.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/pikachu.png'}"
+             alt="Profile picture" src="">
+
+        <p th:text="${user.username}">Username</p>
+
+
+        <form th:action="@{/profile/update-avatar}" method="post" style="margin-top: 15px;">
+            <label>
+                <input type="url" name="picProfileUrl" placeholder="Copy the URL for your picture here" required style="width: 100%; padding: 5px;">
+            </label>
+            <button type="submit" style="margin-top: 5px; width: 100%; margin-bottom: 10px;">Update profile</button>
+        </form>
+
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+
+    </div>
+
+    <div class="column-details">
+        <div id="pokeArea" th:data-fav-pokemon="${user.favPokemon}"></div>
+
+        <form th:action="@{/profile/update-favPokemon}" method="post" style="margin-top: 15px;">
+            <label>
+                <input type="text" name="favPokemon" placeholder="Enter your favorite pokemon here" required style="width: 100%; padding: 5px;">
+            </label>
+            <button type="submit" style="margin-top: 5px; width: 100%;">Update favorite pokemon</button>
+        </form>
+    </div>
+
+</div>
+
+<template id="pokemonTemplate">
+    <div class="pokeResult">
+        <h2 class="name">Pokemon</h2>
+        <img alt="Pokemon Sprite" class="sprite" src="">
+        <p class="height">Height</p>
+        <p class="weight">Weight</p>
+        <p class="type">Type</p>
+    </div>
+</template>
+
+</body>
+</html>

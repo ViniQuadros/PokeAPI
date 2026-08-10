@@ -2,6 +2,8 @@ package com.dev.PokeAPI.services;
 
 import com.dev.PokeAPI.domain.UserLogin;
 import com.dev.PokeAPI.repositories.UserLoginRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,5 +29,15 @@ public class UserLoginService implements UserDetailsService {
                 .password(user.getPassword())
                 .roles(user.getRole().name())
                 .build();
+    }
+
+    public String getLoggedUsername() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            return authentication.getName(); // Return username from the current user
+        }
+
+        return null;
     }
 }

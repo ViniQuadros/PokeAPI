@@ -25,7 +25,7 @@ public class SecurityConfig {
                 // 2. Configuração do Formulário de Login
                 .formLogin(form -> form
                         .loginPage("/login")               // Rota que exibe a sua página HTML de login
-                        .defaultSuccessUrl("/index.html", true)  // Redireciona para a página do seu parceiro após o login
+                        .defaultSuccessUrl("/index", true)  // Redireciona para a página do seu parceiro após o login
                         .permitAll()
                 )
                 .exceptionHandling( ex ->
@@ -35,6 +35,8 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                         .permitAll()
                 );
 
