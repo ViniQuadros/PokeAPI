@@ -71,7 +71,7 @@ button:hover {
 
 .container {
     display: flex;
-        width: 80%;
+    width: 80%;
     min-height: 80vh;
     gap: 80px;
 }

@@ -102,3 +102,9 @@ button:active {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
+.active-profile {
+border: 1px solid white;
+border-radius: 50%;
+object-fit: cover;
+}
+
