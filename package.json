@@ -12,6 +12,8 @@
   },
   "private": true,
   "dependencies": {
-    "@favware/graphql-pokemon": "^8.8.1"
+    "@favware/graphql-pokemon": "^8.8.1",
+    "dotenv": "^17.4.2",
+    "node.js": "^0.0.1-security"
   }
 }

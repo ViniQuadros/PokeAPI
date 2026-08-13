@@ -29,4 +29,9 @@ public class PageControllers {
     public String search() {
         return "search";
     }
+
+    @GetMapping("/games")
+    public String games() {
+        return "games";
+    }
 }

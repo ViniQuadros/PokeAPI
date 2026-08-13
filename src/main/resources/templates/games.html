@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="icon" type="image/png" th:href="@{/images/icon_pokeball.png}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/search.css}">
+    <script th:src="@{/js/games.js}" defer></script>
+</head>
+<body>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li><a th:href="@{/index}">Home</a></li>
+        <li><a th:href="@{/search}">Search</a></li>
+        <li><a th:href="@{/types}">Types</a></li>
+        <li><a th:href="@{/items}">Items</a></li>
+        <li><a th:href="@{/locations}">Locations</a></li>
+        <li><a th:href="@{/games}" class="active">Games</a></li>
+    </ul>
+
+    <a th:href="@{/profile}"><img th:src="@{/images/profileIcon.png}" alt="icon profile" class="profile-icon"></a>
+</nav>
+
+<template id="pokemonTemplate">
+    <div class="pokeResult">
+        <h2 class="name">Pokemon</h2>
+        <img alt="Game Cover" class="cover">
+        <p class="releaseDate">Release Date</p>
+    </div>
+</template>
+
+<div id="pokeArea">
+</div>
+
+</body>
+</html>
