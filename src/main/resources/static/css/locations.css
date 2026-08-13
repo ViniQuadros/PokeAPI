@@ -1,10 +1,8 @@
 h2, ul{
-    font-family: system-ui, -apple-system, sans-serif;
     color: #1e293b;
 }
 
 h3{
-    font-family: system-ui, -apple-system, sans-serif;
     color: #000c4a;
 }
 
@@ -35,7 +33,6 @@ h3{
     outline: none;
     cursor: pointer;
 
-    font-family: system-ui, -apple-system, sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     color: #081d37;

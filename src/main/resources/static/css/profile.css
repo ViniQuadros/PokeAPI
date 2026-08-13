@@ -103,8 +103,6 @@ button:active {
 }
 
 .active-profile {
-border: 1px solid white;
-border-radius: 50%;
-object-fit: cover;
+border-color: white;
 }
 

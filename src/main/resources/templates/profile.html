@@ -21,7 +21,12 @@
         <li><a href="#games">Games</a></li>
     </ul>
 
-    <a th:href="@{/profile}"><img th:src="@{/images/profileIcon.png}" alt="icon profile" class="profile-icon active-profile"></a>
+    <div class="column-profile">
+        <a th:href="@{/profile}"><img
+                th:src="${user?.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/profileIcon.png'}"
+                alt="icon profile" class="profile-icon active-profile"></a>
+        <p class="username-profile" th:text="${user.username}">Username</p>
+    </div>
 </nav>
 <div class="container">
     <div class="column-user">
@@ -53,7 +58,6 @@
 
         <form th:action="@{/profile/update-favPokemon}" method="post" style="margin-top: 15px;">
             <label for="pokemon-field"></label><input type="text" id="pokemon-field" class="field-box" name="favPokemon" placeholder="Enter your favorite pokemon here" required style="width: 100%; padding: 5px;">
-
             <button type="submit" style="margin-top: 5px; width: 100%;">Update favorite pokemon</button>
         </form>
     </div>
