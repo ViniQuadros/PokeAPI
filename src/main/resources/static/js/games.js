@@ -32,7 +32,7 @@ function renderGameCard(res) {
     const dataText = dataObj.toLocaleDateString("en", {
         timeZone: "UTC"
     })
-    clone.querySelector(".releaseDate").textContent = dataText;
+    clone.querySelector(".releaseDate").textContent = "Launch date: " + dataText;
 
     area.appendChild(clone);
 }
