@@ -18,6 +18,11 @@ public class GlobalController {
 
     @ModelAttribute("user")
     public UserLogin getProfile(Principal principal) {
+
+        if (principal == null) {
+            return null;
+        }
+
         String username = principal.getName();
 
         return repo.findByUsername(username)

@@ -21,11 +21,15 @@
         <li><a th:href="@{/games}">Games</a></li>
     </ul>
 
-    <div class="column-profile">
-        <a th:href="@{/profile}"><img
-                th:src="${user?.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/profileIcon.png'}"
-                alt="icon profile" class="profile-icon"></a>
-        <p class="username-profile" th:text="${user.username}">Username</p>
+    <div class="row-profile">
+        <div class="column-profile">
+            <p class="username-profile" th:text="${user.username}">Username</p>
+        </div>
+        <div class="column-profile">
+            <a th:href="@{/profile}"><img
+                    th:src="${user?.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/profileIcon.png'}"
+                    alt="icon profile" class="profile-icon"></a>
+        </div>
     </div>
 </nav>
 
@@ -36,7 +40,7 @@
 </div>
 
 <template id="pokemonTemplate">
-    <div class="pokeResult">
+    <div class="pokeResult" style="width: 50%">
         <h2 class="name">Pokemon</h2>
         <img alt="Pokemon Sprite" class="sprite">
         <p class="height">Height</p>
@@ -45,7 +49,7 @@
     </div>
 </template>
 
-<div id="pokeArea">
+<div id="pokeArea" style="display: flex; justify-content: center;">
 </div>
 
 </body>

@@ -22,11 +22,15 @@
         <li><a th:href="@{/games}">Games</a></li>
     </ul>
 
-    <div class="column-profile">
-        <a th:href="@{/profile}"><img
-                th:src="${user?.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/profileIcon.png'}"
-                alt="icon profile" class="profile-icon"></a>
-        <p class="username-profile" th:text="${user.username}">Username</p>
+    <div class="row-profile">
+        <div class="column-profile">
+            <p class="username-profile" th:text="${user.username}">Username</p>
+        </div>
+        <div class="column-profile">
+            <a th:href="@{/profile}"><img
+                    th:src="${user?.picProfileUrl != null && !user.picProfileUrl.isBlank() ? user.picProfileUrl : '/images/profileIcon.png'}"
+                    alt="icon profile" class="profile-icon"></a>
+        </div>
     </div>
 </nav>
 
