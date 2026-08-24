@@ -94,7 +94,6 @@ function renderPokemonCard(res) {
 
 async function loadingFavPokemon() {
     if (area) {
-        // Puxa o valor que nós escondemos no HTML com o Thymeleaf
         const favPokemon = area.dataset.favPokemon;
 
         if (favPokemon && favPokemon.trim() !== "") {
