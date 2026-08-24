@@ -44,4 +44,9 @@ When started, you are sent to the Login page as below:
 If you do not have an account, you can go to the Register page:
 <img width="1350" height="599" alt="image" src="https://github.com/user-attachments/assets/0df9e93a-aaf2-4fa0-a84d-1cc8cce93b8d" />
 
-In development...
+## Video showcase
+
+[![Watch the video](https://img.youtube.com/vi/7qpgqFoR23c/0.jpg)](https://www.youtube.com/watch?v=7qpgqFoR23c)   
+
+
+
